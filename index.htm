@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>随行物流商务平台</title>
+	<style>
+		body , p , ul , li , h3 , ol {padding:0;margin:0}
+		a {text-decoration:none}
+		body {font-family:微软雅黑 arial;padding:0 2px}
+		* {font-family:arial}
+
+		li {list-style:none}
+		dd {
+			float:left;padding:0;margin:0;
+			width:33%;
+		}
+		dd.last {width:34%}
+		dd div {
+			border1:#fff solid 1px;
+			border1-width:0 1px 2px 1px;
+			margin:0 1px 2px 0;
+			box-sizing: border-box;
+			height:115px;
+			background-size: 50px 50px;
+			background-position:center 10px;
+			background-repeat:no-repeat;
+			position1:relative;
+			padding-top:80px;
+			background-color:#eee
+		}
+		dd.last div {
+			margin:0 0px 2px 1px;
+		}
+		dd div p {
+			padding:0;
+			margin:0;
+			position1:absolute;
+			background-color: rgba(255, 255, 255 , 0.7);
+			background:none;
+			display:block;
+			font:bold 20px arial;
+			line-height:35px;
+			padding-left1:20px;
+			text-align:center;
+			color:#fff;
+			bottom:0;
+		}
+		dd.a1 div {background-image:url(img/a1.jpg);}
+		dd.a1 div p {background-color: rgba(51, 51, 51 , 0.7);}
+		dd.a2 div {background-image:url(img/a2.jpg);}
+		dd.a2 div p {background-color: rgba(255, 102, 0 , 0.7);}
+		dd.a3 div {background-image:url(img/a2.jpg);}
+		dd.a3 div p {background-color: rgba(153, 102, 0 , 0.7);}
+		dd.a4 div {background-image:url(img/a4.jpg);}
+		dd.a4 div p {background-color: rgba(0, 255, 153 , 0.7);}
+		dd.a5 div {background-image:url(img/a5.jpg);}
+		dd.a5 div p {background-color: rgba(102, 0, 255 , 0.7);}
+
+		dd.a6 div {background-image:url(img/a5.jpg);}
+		dd.a6 div p {background-color: rgba(0 , 0 , 0 , 0.7);}
+
+
+		.clearfix{overflow:hidden;_zoom:1;}
+		
+		.news {border:#999 solid 2px;border-top:0}
+		.news p {background:#999;padding-left:10px;font:bold 20px arial;line-height:35px;color:#fff}
+		.news ol li {line-height:130%;padding:10px}
+		.news a h3 {font:bold 16px arial;color:#000}
+		.news a {color:#666;font-size:12px}
+		
+		.customer {border:#0067b4 solid 2px;border-top:0;margin-top:2px}
+		.customer p {background:#0067b4;padding-left:10px;font:bold 20px arial;line-height:35px;color:#fff}
+		.customer ul {padding:10px;}
+		.customer li {float:left;width:88px;height:60px;margin-right:10px;}
+
+		.customer li.c_msc {background-image:url(img/c_msc.jpg)}
+		.customer li.c_cmacgm {background-image:url(img/c_cmacgm.jpg)}
+		.customer li.c_maersk {background-image:url(img/c_maersk.jpg)}
+		.customer li.c_evergreen {background-image:url(img/c_evergreen.jpg)}
+		.customer li.c_cnc {background-image:url(img/c_cnc.jpg)}
+
+		.footer {margin-top:10px;border-top:#0067b4 solid 3px;padding:10px;font-size:14px;line-height:160%;background:#eee}
+
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquery.ba-hashchange.min.js"></script>
+	<script src="js/jquery.touchcarousel-1.0.min.js"></script> 
+
+</head>
+<body screen_capture_injected="true">
+	<div style="height:60px;background:url(img/logobg.jpg) no-repeat top right #eee;border-bottom:#0067b4 solid 3px">
+		<div style="background:url(img/logo.png) right bottom no-repeat;height:58px;width:195px;float:left">&nbsp;</div>
+		<ul style="float:right;font-size:14px;margin:0;padding:0;list-style:none;margin:5px">
+			<li style="display:inline-block;padding:32px 10px 6px 10px;line-height:12px;background-color: rgba(51, 51, 51 , 0.3);;border-radius:3px">登录</li>
+			<li style="display:inline-block;padding:32px 10px 6px 10px;line-height:12px;background-color: rgba(51, 51, 51 , 0.3);;border-radius:3px">功能菜单</li>
+		</ul>
+	</div>
+	
+	<div style="background:#0067b4;margin:2px 0;line-height:50px;text-align:center;color:#fff;font-size:20px;font-weight:bold" id="ttt">
+		欢迎访问随行物流商务平台! (动画文字)
+	</div>
+
+	<dl style="padding:0;margin:0;list-style:none;" class="clearfix">
+		<dd class='a1'><div><p>我的定舱</p></div></dd>
+		<dd class='a2'><div><p>船期信息</p></div></dd>
+		<dd class='a3 last'><div><p>码头服务</p></div></dd>
+		<dd class='a4'><div><p>我的押金</p></div></dd>
+		<dd class='a5'><div><p>进出口查询</p></div></dd>
+		<dd class='a6 last'><div><p>个人信息</p></div></dd>
+	</dl>
+
+	<div class='news'>
+		<p class='clearfix'>
+		<span style='float:left'>最新消息</span>
+		<span style='float:right;display:inline-block;padding:0px 2px'>
+			<span style='display:inline-block;width:7px;height:7px;background:#333'></span>
+			<span style='display:inline-block;width:7px;height:7px;background:#fff'></span>
+			<span style='display:inline-block;width:7px;height:7px;background:#fff'></span>
+		</span>
+		</p>
+		<ol>
+			<li>
+			<a href='#'>
+				<h3>印度国航（SCI）接收2艘巴拿马型散货船</h3>
+				印度国航（SCI）已经接收了“Vishva Vijay”轮和“Vishva Preeti”轮2艘巴拿马型散货船...
+			</a>
+			</li>
+		</ol>
+	</div>
+
+	<div class='customer'>
+		<p>船舶五日滚动协同动态</p>
+		<ul class="clearfix">
+			<li class="c_msc"></li>
+			<li class="c_cmacgm"></li>
+			<li class="c_maersk"></li>
+			<li class="c_evergreen"></li>
+			<li class="c_cnc" style="margin:0"></li>
+		</ul>
+	</div>
+
+	<div class='footer'>
+		<div>
+		<span style='float:right'><img src="img/sina.png" align="absmiddle"> <img src="img/tt.png" align="absmiddle"></span>
+		关于我们  |  人才招聘  |  <a href="tel:12345678912">联系方式</a>s
+		</div>
+		客户电话: 400 040 1717 <br>
+
+		webmaster@sailing17.com <br>
+
+		天津市河西区徐州道5号710室   <b>查看地图</b><br>
+
+		© 2013 St. Joseph Hospital. All Rights Reserved.
+	</div>
+
+
+
+	<script>
+          var list2 = ['jQuery插件Textualizer的中文演示'
+                    ,'Textualizer插件支持中文'
+                    , '也支持多个同时展示'
+                    , '个人感觉还是挺炫的，有兴趣的可以研究下代码'];
+
+          var txt2 = $('#ttt');
+          txt2.textualizer(list2, { duration: 3000 });
+          txt2.textualizer('start');
+	</script>
+</body>
+</html>
