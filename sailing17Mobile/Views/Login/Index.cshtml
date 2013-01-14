@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "用户登录";
+    ViewBag.pagelocation = "用户登录";
+}
+<section style='padding:10px'>
+<form action="@Url.Action("check" , "login")" method="post">
+<div style="padding:10px 0">当前操作需要登录 , 请在下面输入登录信息.</div>
+@if (ViewBag.errors != null) { 
+    <div style="padding:10px;color:red">@ViewBag.errors</div>
+}
+<div id="loginform">
+    <div class='clearfix'><label>用户名:</label><p><input type="text" placeholder="请输入用户名" name="username"/></p></div>
+    <div class='clearfix'><label>密码:</label><p><input type="password" placeholder="请输入密码" name="userpass"/></p></div>
+</div>
+<div style='padding:10px 0;text-align:center'><input type="submit" class='btn_login' value="登录"/></div>
+<div style="padding:10px 0;color:#999">
+<a href='#'>忘记了密码?</a><br />
+</div>
+</form>
+</section>

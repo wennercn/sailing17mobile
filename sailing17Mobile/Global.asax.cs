@@ -22,6 +22,10 @@ namespace sailing17Mobile
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //返回XML, 而不是JSON
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
+
         }
     }
 }

@@ -11,9 +11,13 @@
 <body>
 	<header>
 	<div class="header">
-		<div class="logo">&nbsp;</div>
+		<div class="logo"><a href='~/'>&nbsp;</a></div>
 		<ul class="nav">
-			<li class='login'><a href='~/user/login'>登录</a></li>
+            @if (Session["username"] != null) {
+			    <li class='login'><a href='@Url.Action("" , "user")'>@Session["username"]</a></li>    
+            } else { 
+			    <li class='login'><a href='@Url.Action("" , "Login")'>登录</a></li>            
+            }
 			<li class='menu'><a href='#'>菜单</a></li>
 		</ul>
 	</div>
