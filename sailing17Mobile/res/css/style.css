@@ -1,0 +1,101 @@
+﻿body , p , ul , li , h3 , ol {padding:0;margin:0}
+a {text-decoration:none}
+body {font-family:微软雅黑 arial;padding:0 2px}
+* {font-family:arial}
+li {list-style:none}
+
+.header {height:60px;background:url(../img/logobg.jpg) no-repeat top right #eee;border-bottom:#0067b4 solid 3px;margin-bottom:2px}
+.logo {background:url(../img/logo.png) right bottom no-repeat;height:58px;width:195px;float:left}
+.nav {float:right;font-size:14px;margin:0;padding:0;list-style:none;margin:5px 0px}
+.nav li {float:left;background-color: rgba(204, 102, 0 , 0.5);margin-left:2px;background-repeat:no-repeat;background-position:center 3px;background-size: 24px 24px;}
+.nav li.login {background-image:url(../img/header_login.png);}
+.nav li.menu {background-image:url(../img/header_menu.png);}
+.nav li a {display:block;padding:32px 10px 6px 10px;line-height:12px;color:#fff;font-weight:bold}
+
+
+/*title*/
+.pagelocation {margin-bottom:2px;position:relative;font:bold 14px arial;line-height:48px}
+.pagelocation a.back {position:absolute;right:0;top:0;width:96px;padding-left:32px;box-sizing: border-box;color:#fff;background:url(../img/back.png)no-repeat 4px center #999}
+.pagelocation h3 {margin-right:98px;background:#ccc;padding-left:10px;font-size:24px}
+
+
+dd {
+	float:left;padding:0;margin:0;
+	width:33%;
+}
+dd.last {width:34%}
+dd div {
+	border1:#fff solid 1px;
+	border1-width:0 1px 2px 1px;
+	margin:0 2px 2px 0;
+	box-sizing: border-box;
+	height1s:115px;
+	background-size: 64px 64px;
+	background-position:center 10px;
+	background-repeat:no-repeat;
+	position1:relative;
+	padding-top:80px;
+	background-color:#0067b4
+}
+dd.last div {
+	margin:0 0px 2px 0px;
+}
+dd div p {
+	padding:0;
+	margin:0;
+	position1:absolute;
+	background-color: rgba(255, 255, 255 , 0.7);
+	background:none;
+	display:block;
+	font:bold 20px arial;
+	line-height:35px;
+	padding-left1:20px;
+	text-align:center;
+	color:#fff;
+	bottom:0;
+}
+dd.a1 div {background-image:url(../img/a1.png);background-color:#a9bb10;}
+dd.a2 div {background-image:url(../img/a2.png);}
+dd.a3 div {background-image:url(../img/a3.png);}
+dd.a4 div {background-image:url(../img/a4.png);}
+dd.a5 div {background-image:url(../img/a5.png);}
+dd.a6 div {background-image:url(../img/a6.png);}
+/*
+dd.a1 div p {background-color: rgba(51, 51, 51 , 0.7);}
+dd.a2 div p {background-color: rgba(255, 102, 0 , 0.7);}
+dd.a3 div p {background-color: rgba(153, 102, 0 , 0.7);}
+dd.a4 div p {background-color: rgba(0, 255, 153 , 0.7);}
+dd.a5 div p {background-color: rgba(102, 0, 255 , 0.7);}
+dd.a6 div p {background-color: rgba(0 , 0 , 0 , 0.7);}
+dd.a1 div p , dd.a2 div p , dd.a3 div p , dd.a4 div p , dd.a5 div p , dd.a6 div p {background-color:#0067b4;}
+*/
+
+.clearfix{overflow:hidden;_zoom:1;}
+
+
+.news {margin-bottom:2px;line-height:48px;}
+.news a {display:block;}
+.news .iconblock {width:48px;background-color:#ccc;margin-right:2px;text-align:center;}
+.news .list {margin-left:50px;background-color:#ccc;margin-right:100px;}
+.news .list a {display:block;padding-left:10px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;word-break:breakall;}
+
+.news p {background:#999;padding-left:10px;font:bold 20px arial;line-height:35px;color:#fff}
+.news ol li {line-height:130%;padding:10px}
+.news a h3 {font:bold 16px arial;color:#000}
+.news a {color:#666;font-size:12px}
+
+.customer {border:#ff6600 solid 2px;border-top:0;margin-bottom:2px}
+.customer p {background:#ff6600;padding-left:10px;font:bold 20px arial;line-height:35px;color:#fff}
+.customer ul {padding:10px;}
+.customer li {float:left;width:88px;height:60px;margin-right:10px;}
+
+.customer li.c_msc {background-image:url(../img/c_msc.jpg)}
+.customer li.c_cmacgm {background-image:url(../img/c_cmacgm.jpg)}
+.customer li.c_maersk {background-image:url(../img/c_maersk.jpg)}
+.customer li.c_evergreen {background-image:url(../img/c_evergreen.jpg)}
+.customer li.c_cnc {background-image:url(../img/c_cnc.jpg)}
+
+.footer {border-top:#0067b4 solid 3px;padding:10px;font-size:14px;line-height:160%;background:#eee}
+
+.fl {float:left;}
+.fr {float:right;}

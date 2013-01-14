@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+	<title>随行物流商务平台 @ViewBag.Title</title>
+    @Styles.Render("~/res/css/style.css")
+    @Scripts.Render("~/script/basejs")
+    @RenderSection("headScript", required: false)
+</head>
+<body>
+	<header>
+	<div class="header">
+		<div class="logo">&nbsp;</div>
+		<ul class="nav">
+			<li class='login'><a href='~/user/login'>登录</a></li>
+			<li class='menu'><a href='#'>菜单</a></li>
+		</ul>
+	</div>
+	</header>
+    @if (ViewBag.pagelocation != null) { 
+    <section class='pagelocation'>
+        <h3>@ViewBag.pagelocation</h3>
+        <a href='javascript:history.go(-1)' class='back'>返回上页</a>
+    </section>
+    }
+    @RenderBody()
+	<div class='footer'>
+		<div>
+		<span style='float:right'><img src="~/res/img/sina.png" align="absmiddle"> <img src="~/res/img/tt.png" align="absmiddle"></span>
+		关于我们  |  人才招聘  |  <a href="tel:12345678912">联系方式</a>s
+		</div>
+		客户电话: 400 040 1717 <br>
+
+		webmaster@sailing17.com <br>
+
+		天津市河西区徐州道5号710室   <b>查看地图</b><br>
+
+		© 2013 St. Joseph Hospital. All Rights Reserved.
+	</div>
+    @RenderSection("footScript", required: false)
+</body>
+</html>
