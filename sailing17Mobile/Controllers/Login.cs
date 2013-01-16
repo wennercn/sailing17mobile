@@ -26,11 +26,20 @@ namespace sailing17Mobile.Controllers
                 return View("index");
             }
 
+            ViewBag.username = name;
+            ViewBag.userpass = pass;
+
+
             //检测
             string rs = checkLogin(name, pass);
             if (rs == "succ"){
-                //TODO: 应该返回进入的页面
-                return RedirectToAction("" , "Home");
+                //转到登录前页面
+                //TODO: 应该带上参数ROUTERDATA
+                string controller = Session["lastController"] != null ? Session["lastController"].ToString() : "";
+                string action = Session["lastAction"] != null ? Session["lastAction"].ToString() : "";
+                Session["lastController"] = null;
+                Session["lastAction"] = null;
+                return RedirectToAction( action , controller);
             }else{
                 ViewBag.errors = rs;
                 return View("index");
@@ -42,15 +51,14 @@ namespace sailing17Mobile.Controllers
 
             try {
                 _RPC MyLoader = new _RPC();
-                ATLDATALib.IDBDataAtl MyLogin;
-                MyLogin = MyLoader.EmployeeControl.Employee.Login(
+                ATLDATALib.IDBDataAtl MyLogin = MyLoader.EmployeeControl.Employee.Login(
                     "emp_code", name,
                     "password", pass
                 );
                 if (MyLogin.IsOK()) {
                     Session["session"] = MyLogin.GetStringTName("Session");
                     MyLoader.SetSession(Session["session"]);
-                    SM.RPC = MyLoader;
+                    SM.UserRPC = MyLoader;
                     Session["user_id"] = MyLogin.GetStringTName("emp_id");
                     Session["user_code"] = name;
                     Session["user_name"] = MyLogin.GetStringTName("fullname");
@@ -59,7 +67,7 @@ namespace sailing17Mobile.Controllers
                     return MyLogin.GetErrorinfo();
                 }
             } catch (Exception e) {
-                return e.Message;
+                return "异常:"+e.Message;
             }
 
         }

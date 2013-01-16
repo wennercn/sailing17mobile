@@ -1,0 +1,13 @@
+﻿@model sailing17Mobile.Models.News
+@{
+    ViewBag.pagelocation = "新闻内容";
+}
+<section class='maincontent'>
+    <div class="newsdetail">
+        <header>@Model.title</header>
+        <m>@Model.fullname @@ @Model.create_time </m>
+        <article>
+        @Html.Raw(Model.newcontent)
+        </article>
+    </div>
+</section>

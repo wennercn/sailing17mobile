@@ -13,6 +13,11 @@ namespace sailing17Mobile.Models {
         public override void OnAuthorization(AuthorizationContext filterContext) {
 
             if (filterContext.HttpContext.Session["user_id"] == null) {
+
+                string controller = filterContext.RouteData.Values["controller"].ToString();
+                string action = filterContext.RouteData.Values["action"].ToString();
+                filterContext.HttpContext.Session["lastController"] = controller;
+                filterContext.HttpContext.Session["lastAction"] = action;
                 filterContext.HttpContext.Response.Redirect(new UrlHelper(filterContext.RequestContext).Action("", "Login"));
                 filterContext.Result = new EmptyResult();
             }

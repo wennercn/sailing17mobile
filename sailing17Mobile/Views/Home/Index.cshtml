@@ -2,38 +2,97 @@
     ViewBag.Title = "首页";
     //链接
     string[,] links = { 
-        {"我的定舱" , "user" , "myorder"} , 
-        {"船期信息" , "ship" , ""} , 
+        {"我的定舱" , "user" , "orders"} , 
+        {"船期信息" , "plan" , ""} , 
         {"码头服务" , "port" , ""} , 
-        {"我的押金" , "user" , "mymoney"} , 
-        {"进出口查询" , "ie" , "query"} , 
+        {"我的押金" , "user" , "moneys"} , 
+        {"进出口查询" , "jck" , ""} , 
         {"个人信息" , "user" , ""} 
     };
     //客户
     string[] customers = { "msc" , "cmacgm" , "maersk" , "evergreen" , "cnc"};
+
+    ATLDATALib.IDBDataAtl news = ViewBag.news;
+    int newsCount = 0;
+    if (news.IsOK()){
+        newsCount = news.GetRowCount();
+        newsCount = newsCount > 10 ? 10 : newsCount;
+    }
 }
+
+@section headContent{
+<style>
+#carousel-gallery {overflow: hidden !important;}		
+#carousel-gallery .touchcarousel-wrapper {overflow: visible;}
+</style>
+}
+    <!--最新消息显示-->
 	<div class='news clearfix'>
-		<a href="#" class='iconblock fl'>N</a>
+		<a href="@Url.Action("" , "news")" class='iconblock fl'>N</a>
+        <!--
+        右边图标 , 可以放微博图标
 		<div class='fr'>
 			<div class='iconblock fl'>2</div>
 			<div class='iconblock fl' style='margin-right:0'>3</div>
 		</div>
-		<div class='list'>
-			<a href='#'>印度国航（SCI）接收2艘巴拿马型散货船印度国航（SCI）接收2艘巴拿马型散货船</a>
+        -->        
+		<div class='list' style="overflow:hidden">
+            <div class="touchslider-viewport"><div>
+            @for (int i = 0; i <newsCount; i++){
+                ATLDATALib.DBDataAtl item = (ATLDATALib.DBDataAtl)news.GetDataTIndex(i);                
+			    <a href='@Url.Action("detail", "news", new { id = item.GetStringTName("new_id") })' class="touchslider-item">@item.GetStringTName("title")</a>
+            }
+            </div></div>
 		</div>
 	</div>
-
+    <!--菜单-->
 	<dl style="padding:0;margin:0;list-style:none;" class="clearfix">
-    @for (int i = 0; i < links.GetLength(0);i++ ) { 
-        <dd class ="a@(i+1) @( (i+1) % 3 == 0 ? "last" : "")"><a href="@Url.Action(links[i,2] , links[i,1])"><p>@links[i,0]</p></a></dd>
+    @for (int i = 0; i < links.GetLength(0); i++){ 
+        <dd class ="a@(i + 1) @( (i + 1) % 3 == 0 ? "last" : "")"><a href="@Url.Action(links[i, 2], links[i, 1])"><p>@links[i, 0]</p></a></dd>
     }
 	</dl>
-
-	<div class='customer'>
+    <!--客户图标-->
+	<div id="carousel-gallery" class='customer touchcarousel'>
 		<p>船舶五日滚动协同动态</p>
-		<ul class="clearfix">
-        @foreach (var c in customers) { 
-            <li class="c_@(c)"></li>
+		<ul class="touchcarousel-container clearfix">
+        @foreach (var c in customers)
+        { 
+            <li class="touchcarousel-item c_@(c)"></li>
         }
 		</ul>
 	</div>
+
+    <!--加载脚本-->
+    @section footContent {
+        @Scripts.Render(
+            "~/script/jquery.touchcarousel-1.0.min.js",//客户图标滚动
+            "~/script/jquery.touchslider.min.js"//最新消息滚动
+        )
+        <script type="text/javascript">
+            jQuery(function ($) {
+
+                 //消息自动滚动
+                $(".news .list").touchSlider({
+                    duration: 500, // 移动速度
+                    delay: 2000, // 自动播放间隔时间
+                    mouseTouch: true,
+                    autoplay: true , 
+                    viewport: ".touchslider-viewport"
+                });
+                         
+                //客户图片拖动
+                carouselInstance = $("#carousel-gallery").touchCarousel({
+                    itemsPerPage: 1,
+                    scrollbar: false,
+                    scrollbarAutoHide: true,
+                    scrollbarTheme: "dark",
+                    pagingNav: false,
+                    snapToItems: false,
+                    scrollToLast: false,
+                    useWebkit3d: true,
+                    loopItems: true
+                }).data('touchCarousel');
+
+            });
+        </script>            
+    }

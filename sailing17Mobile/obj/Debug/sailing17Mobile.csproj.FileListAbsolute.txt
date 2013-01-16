@@ -102,3 +102,5 @@ G:\GitHub\sailing17mobile\sailing17Mobile\bin\zh-Hans\System.Web.Razor.resources
 G:\GitHub\sailing17mobile\sailing17Mobile\bin\zh-Hans\System.Web.WebPages.resources.dll
 G:\GitHub\sailing17mobile\sailing17Mobile\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 G:\GitHub\sailing17mobile\sailing17Mobile\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+G:\mobiletest\sailing17Mobile\sailing17Mobile\bin\log4net.dll
+G:\mobiletest\sailing17Mobile\sailing17Mobile\bin\log4net.xml

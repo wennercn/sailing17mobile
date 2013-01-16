@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+    int pageCount = int.Parse(ViewData["pageCount"].ToString());
+    int page = int.Parse(ViewData["page"].ToString());
+    string controller = @ViewContext.RouteData.Values["controller"].ToString();
+    string action = @ViewContext.RouteData.Values["action"].ToString();
+}
+<style>
+.splitpage {margin-bottom:2px;line-height:48px;}
+.splitpage table {width:100%;border-collapse:collapse;}
+.splitpage td {width:25%;padding:0;border:0}
+.splitpage td a {display:block;background:#ccc}
+.splitpage td.first {text-align:right;padding-right:2px}
+.splitpage td.first a {padding-right:10px}
+.splitpage td.middle {width:50%;text-align:center;background:#ddd;position:relative;}
+.splitpage td.middle select {height:48px;border:0;width:100%;top:0px;left:0px;position:absolute;opacity:0;}
+.splitpage td.last {text-align:left;padding-left:2px}
+.splitpage td.last a {padding-left:10px}
+
+.stuck {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, .3);
+    margin-left:-1px;
+}
+
+</style>
+<!--分页-->        
+<div class='splitpage'>
+    <table>
+        <tr>
+        <td class='first'>
+        @if (page == 1) {
+            <a>&nbsp;</a>
+        } else {
+            <a href='@Url.Action(action, controller, new { id = page - 1 })'>上一页</a>
+        }
+        </td>
+        <td class='middle'>
+        <select id="pageselect">
+        @for (int i = 1; i <= pageCount; i++) { 
+            <option value="@i" @(page == i ? "selected" : "")>第@(i)页</option>
+        }
+        </select>
+        第 @page 页 / 共 @pageCount 页
+        </td>
+        <td class='last'>
+        @if (page == pageCount) {
+            <a>&nbsp;</a>
+        } else {
+            <a href='@Url.Action(action, controller, new { id = page + 1 })'>下一页</a>
+        }
+        </td>
+        </tr>
+    </table>
+</div>
+@Scripts.Render("~/script/jquery.waypoints.js" , "~/script/jquery.waypoints-sticky.js")
+<script>
+    jQuery(function ($) {
+        $('.splitpage').waypoint('sticky');
+        $("#pageselect").bind("change", function () {
+            window.location.href = "/@controller/@action/" + $(this).val();
+        });
+
+    });
+</script>

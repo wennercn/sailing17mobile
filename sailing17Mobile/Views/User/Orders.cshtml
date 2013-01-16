@@ -1,0 +1,27 @@
+﻿@model IEnumerable<sailing17Mobile.Models.UserOrder>
+@using sailing17Mobile.Models
+@{
+    ViewBag.Title = ViewBag.pagelocation = "我的定舱";
+}
+<section class="maincontent">
+
+@*分页*@
+@Html.Partial("splitpage" , ViewData)
+<div class="orderlist">
+    <ul>
+    @foreach (UserOrder order in Model) {
+    <li>
+        <a href="@Url.Action("orderdetail", "user", new { id = order.jobno})"  class="@(order.cur_status == "已处理" ? "yes" : "no")">
+            <header><span class='fr'>@order.boxtype</span>@order.jobno</header>
+            <m class='clearfix'><span class='fl'><i>To.</i>@order.discharge_port</span><span class='fr'><i>From.</i>@order.load_port</span></m>
+            <article class='clearfix'>
+                <p class="first">@order.agent_name</p>
+                <p >@order.send_good</p>
+                <p class="last">@order.ansend_good</p>
+            </article>
+        </a>
+    </li> 
+    }
+    </ul>
+</div>
+</section>

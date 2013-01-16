@@ -6,15 +6,15 @@
 	<title>随行物流商务平台 @ViewBag.Title</title>
     @Styles.Render("~/res/css/style.css")
     @Scripts.Render("~/script/basejs")
-    @RenderSection("headScript", required: false)
+    @RenderSection("headContent", required: false)
 </head>
 <body>
 	<header>
 	<div class="header">
 		<div class="logo"><a href='~/'>&nbsp;</a></div>
 		<ul class="nav">
-            @if (Session["username"] != null) {
-			    <li class='login'><a href='@Url.Action("" , "user")'>@Session["username"]</a></li>    
+            @if (Session["user_id"] != null) {
+			    <li class='login'><a href='@Url.Action("" , "user")'>@Session["user_name"]</a></li>    
             } else { 
 			    <li class='login'><a href='@Url.Action("" , "Login")'>登录</a></li>            
             }
@@ -27,6 +27,12 @@
         <h3>@ViewBag.pagelocation</h3>
         <a href='javascript:history.go(-1)' class='back'>返回上页</a>
     </section>
+    }
+    @if (ViewBag.ErrorInfo != null){
+        <section class="pageerrorinfo">
+            <h3>调用发生错误</h3>
+            @ViewBag.ErrorInfo
+        </section>
     }
     @RenderBody()
 	<div class='footer'>
@@ -42,6 +48,6 @@
 
 		© 2013 St. Joseph Hospital. All Rights Reserved.
 	</div>
-    @RenderSection("footScript", required: false)
+    @RenderSection("footContent", required: false)
 </body>
 </html>

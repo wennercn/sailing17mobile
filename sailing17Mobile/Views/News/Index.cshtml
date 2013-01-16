@@ -1,0 +1,19 @@
+﻿@model IEnumerable<sailing17Mobile.Models.News>
+@using sailing17Mobile.Models;
+@{
+    ViewBag.Title = ViewBag.pagelocation = "最新信息";
+}
+<section class='maincontent'>
+<div class='newslist'>
+    <ul>
+    @foreach(News news in Model){
+        <li>
+            <a href='@Url.Action("detail", "news", new { id = news.new_id })'>
+            <header> • @news.title</header>
+            <m>@news.fullname @@ @news.create_time </m>
+            </a>
+        </li>
+    }
+    </ul>
+</div>
+</section>

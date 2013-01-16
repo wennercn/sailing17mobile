@@ -11,8 +11,10 @@ namespace sailing17Mobile.Controllers
     public class HomeController : Controller
     {   
         //[UserAuthorize]
-        public ActionResult Index()
-        {
+        public ActionResult Index(){
+
+            ATLDATALib.IDBDataAtl rs = SM.RPC.ShipBoxPriceControl.GetNewsList("ntype", "");
+            ViewBag.news = rs;
             return View();
         }
     }

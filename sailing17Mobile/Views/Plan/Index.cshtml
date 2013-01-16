@@ -1,0 +1,29 @@
+﻿@model IEnumerable<sailing17Mobile.Models.Plan>
+@using sailing17Mobile.Models;
+@{
+    ViewBag.Title = ViewBag.pagelocation = "船期信息";
+}
+
+<section class='maincontent'>
+<div class='planlist'>
+    <ul>
+@foreach(Plan plan in Model){
+    string eta = plan.eta1;
+    eta = eta.Replace(" ", "<br>");
+    string etb = plan.etb1;
+    etb = etb.Replace(" ", "<br>");
+    string etd = plan.etd1;
+    etd = etd.Replace(" ", "<br>");
+    <li>
+    <header>@plan.cname / @plan.ename</header>
+    <m class='clearfix'><span class='fl'><i>sn.</i>@plan.sn</span><span class='fr'><i>V.</i>@plan.voyage_num</span></m>
+    <article class='clearfix'>
+        <p class="first @(eta.IndexOf("后告")>-1 ? "hg" : "")">@Html.Raw(eta)</p>
+        <p class="@(etb.IndexOf("后告")>-1 ? "hg" : "")">@Html.Raw(etb)</p>
+        <p class="last @(etd.IndexOf("后告")>-1 ? "hg" : "")">@Html.Raw(etd)</p>
+    </article>
+    </li>    
+}
+    </ul>
+</div>
+</section>
