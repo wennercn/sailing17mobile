@@ -19,7 +19,8 @@ namespace sailing17Mobile.Controllers
 
 
         //我的订舱
-        public ActionResult Orders(int id = 1){
+        public ActionResult Orders(int? id){
+            if (id == null) id = 1;
             AtlData2Model<UserOrder> a2m = new AtlData2Model<UserOrder>();
             List<UserOrder> orderlist = new List<UserOrder>();
             ATLDATALib.IDBDataAtl rs = SM.UserRPC.ShipBoxPriceControl.GetSailBoxList(
@@ -49,7 +50,6 @@ namespace sailing17Mobile.Controllers
                 "type", "2",
                 "jobno" , id
             );
-            string pageCount = "0";
             if (rs.IsOK()) {
                 order = a2m.Convert(rs);
             } else {

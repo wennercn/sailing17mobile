@@ -14,10 +14,21 @@ namespace sailing17Mobile
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Customer",
+                url: "Customer/{id}/{action}/{ccc}",
+                defaults: new { controller = "Customer", action = "About", ccc = UrlParameter.Optional }
+            );
+
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+
+
 
         }
     }

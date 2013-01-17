@@ -2,7 +2,36 @@
 a {text-decoration:none;color:#333}
 body {font-family:微软雅黑 arial;padding:0 2px;font-family:arial;font-size:14px}
 li {list-style:none}
+table {width:100%;border-collapse:collapse;}
+table td {padding:0;border:0}
 
+/*公共*/
+.clearfix{overflow:hidden;_zoom:1;}
+.fl {float:left;}
+.fr {float:right;}
+section.maincontent {margin-bottom:2px}
+section.empty {padding:10px;height:250px}
+
+/*TABLE按钮*/
+table.singlerow td {border-left:#fff solid 2px;background:#eee;line-height:48px;text-align:center;font-size:16px}
+table.singlerow td.first {border:0}
+table.singlerow td a {display:block;}
+
+/*fixed header*/
+.stuck {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, .3);
+    margin-left:-1px;
+}
+
+
+/*错误信息*/
+section.pageerrorinfo {padding:10px;font-size:18px;line-height:200%;}
+section.pageerrorinfo h3 {color:red}
+
+
+/*顶部信息*/
 .header {height:60px;background:url(../img/logobg.jpg) no-repeat top right #eee;border-bottom:#0067b4 solid 3px;margin-bottom:2px}
 .logo {float:left}
 .logo a {background:url(../img/logo.png) right bottom no-repeat;height:58px;width:195px;display:block}
@@ -12,62 +41,40 @@ li {list-style:none}
 .nav li.menu {background-image:url(../img/header_menu.png);}
 .nav li a {display:block;padding:32px 10px 6px 10px;line-height:12px;color:#fff;font-weight:bold}
 
-section.maincontent {margin-bottom:2px}
-section.pageerrorinfo {padding:10px;font-size:18px;line-height:200%;}
-section.pageerrorinfo h3 {color:red}
+/*底部信息*/
+.footmenu {margin-bottom:2px;padding-top:2px;border-top:#0067b4 solid 2px}
+.footmenu .singlerow td {background:#eee;color:#000;}
 
-/*title*/
+
+.footer {border-top:#0067b4 solid 3px;font-size:14px;line-height:180%;background:#fff;padding:10px}
+
+
+
+/*页面标题*/
 .pagelocation {margin-bottom:2px;position:relative;font:bold 14px arial;line-height:48px;}
 .pagelocation a.back {position:absolute;right:0;top:0;width:96px;padding-left:32px;box-sizing: border-box;color:#ffcc00;background:url(../img/back.png)no-repeat 4px center #0067b4}
-.pagelocation h3 {margin-right:98px;background:#0265dc;color:#fff;padding-left:10px;font-size:24px}
+.pagelocation h3 {margin-right:98px;background:#0265dc;color:#fff;padding-left:10px;font-size:24px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;word-break:breakall;}
 
+/*首页新闻滚动条*/
+.news {margin-bottom:2px;line-height:48px;}
+.news a {display:block;line-height:48px}
+.news .iconblock {width:48px;background-color:#ddd;margin-right:2px;text-align:center;}
+.news .list {background-color:#ddd;height:48px;}
+.news .list a {font-size:16px;display:block;padding-left:10px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;word-break:breakall;}
 
-dd {
-	float:left;padding:0;margin:0;
-	width:33%;
-}
+/*首页按钮*/
+dd {float:left;padding:0;margin:0;width:33%;}
 dd.last {width:34%}
-dd a 
-{
-	display:block;
-	border1:#fff solid 1px;
-	border1-width:0 1px 2px 1px;
-	margin:0 2px 2px 0;
-	box-sizing: border-box;
-	height1s:115px;
-	background-size: 64px 64px;
-	background-position:center 10px;
-	background-repeat:no-repeat;
-	position1:relative;
-	padding-top:80px;
-	background-color:#0067b4
-}
-dd.last a {
-	margin:0 0px 2px 0px;
-}
-dd a p {
-	padding:0;
-	margin:0;
-	position1:absolute;
-	background-color: rgba(255, 255, 255 , 0.7);
-	background:none;
-	display:block;
-	font:bold 20px arial;
-	line-height:35px;
-	padding-left1:20px;
-	text-align:center;
-	color:#fff;
-	bottom:0;
-}
+dd a {display:block;margin:0 2px 2px 0;box-sizing: border-box;background-size: 64px 64px;background-position:center 10px;background-repeat:no-repeat;padding-top:80px;background-color:#0067b4}
+dd.last a {margin:0 0px 2px 0px;}
+dd a p {padding:0;margin:0;background-color: rgba(255, 255, 255 , 0.7);background:none;display:block;font:bold 20px arial;line-height:35px;text-align:center;color:#fff;bottom:0;}
 dd.a1 a {background-image:url(../img/a1.png);background-color:#a9bb10;}
 dd.a2 a {background-image:url(../img/a2.png);}
 dd.a3 a {background-image:url(../img/a3.png);}
 dd.a4 a {background-image:url(../img/a4.png);}
 dd.a5 a {background-image:url(../img/a5.png);}
 dd.a6 a {background-image:url(../img/a6.png);}
-
 dd a:hover {background-color:#ff9900}
-
 /*
 dd.a1 div p {background-color: rgba(51, 51, 51 , 0.7);}
 dd.a2 div p {background-color: rgba(255, 102, 0 , 0.7);}
@@ -78,16 +85,18 @@ dd.a6 div p {background-color: rgba(0 , 0 , 0 , 0.7);}
 dd.a1 div p , dd.a2 div p , dd.a3 div p , dd.a4 div p , dd.a5 div p , dd.a6 div p {background-color:#0067b4;}
 */
 
-.clearfix{overflow:hidden;_zoom:1;}
+/*首页客户滚动条*/
+.customer {border:#ff6600 solid 2px;border-top:0;margin-bottom:2px}
+.customer p {background:#ff6600;padding-left:10px;font:bold 20px arial;line-height:35px;color:#fff}
+.customer ul {padding:10px;}
+.customer li {float:left;width:88px;height:60px;margin-right:10px;}
+.customer li img {border:#ccc solid 1px;width:86px;height:58px}
 
 
-.news {margin-bottom:2px;line-height:48px;}
-.news a {display:block;line-height:48px}
-.news .iconblock {width:48px;background-color:#ccc;margin-right:2px;text-align:center;}
-.news .list {margin-left:50px;background-color:#ccc;margin-right1:100px;height:48px;}
-.news .list a {font-size:16px;display:block;padding-left:10px;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;word-break:breakall;}
 
+/*新闻列表页面*/
 .newslist {font-size:16px;line-height:150%}
+/*li 背景效果*/
 .newslist li {border-bottom: 1px solid #CCC /*{c-bup-border}*/;
 background: #EEE /*{c-bup-background-color}*/;
 font-weight: bold;
@@ -103,31 +112,14 @@ background-image: linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /
 .newslist header {color:#0067b0}
 .newslist m {color:#999;font-size:12px;padding-left:10px} 
 .newslist article {}
-
+/*新闻详细信息页*/
 .newsdetail {padding:10px;font-size:18px}
 .newsdetail header {font-weight:bold;font-size:22px;color:#0067b4;padding:10px 0}
 .newsdetail m {display:block;padding:10px 0 15px 0;color:#999}
 .newsdetail article {padding:10px 0;line-height:180%;border-top:#ff6600 solid 2px}
 
 
-.customer {border:#ff6600 solid 2px;border-top:0;margin-bottom:2px}
-.customer p {background:#ff6600;padding-left:10px;font:bold 20px arial;line-height:35px;color:#fff}
-.customer ul {padding:10px;}
-.customer li {float:left;width:88px;height:60px;margin-right:10px;}
-
-.customer li.c_msc {background-image:url(../img/c_msc.jpg)}
-.customer li.c_cmacgm {background-image:url(../img/c_cmacgm.jpg)}
-.customer li.c_maersk {background-image:url(../img/c_maersk.jpg)}
-.customer li.c_evergreen {background-image:url(../img/c_evergreen.jpg)}
-.customer li.c_cnc {background-image:url(../img/c_cnc.jpg)}
-
-.footer {border-top:#0067b4 solid 3px;padding:10px;font-size:14px;line-height:160%;background:#eee}
-
-.fl {float:left;}
-.fr {float:right;}
-
-
-/*loginform*/
+/*登录页表单*/
 #loginform {border:#ff9900 solid 2px;border-width:2px 0 0px 0;margin-bottom:2px;font:bold 18px arial;padding:2px;}
 #loginform div {border-bottom:#ccc solid 1px}
 #loginform label {display:block;width:100px;line-height:48px;}
@@ -137,22 +129,7 @@ background-image: linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /
 
 /*船期列表*/
 .planlist {font-size:16px;line-height:150%}
-.planlist li {
-    padding:10px;
-    border-bottom: 1px solid #CCC /*{c-bup-border}*/;
-}
-.planlist1 li {
-    background: #EEE /*{c-bup-background-color}*/;
-    font-weight: bold;
-    color: #222 /*{c-bup-color}*/;
-    text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ white /*{c-bup-shadow-color}*/;
-    background-image: -webkit-gradient(linear, left top, left bottom, from( white /*{c-bup-background-start}*/), to( #F1F1F1 /*{c-bup-background-end}*/));
-    background-image: -webkit-linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /*{c-bup-background-end}*/);
-    background-image: -moz-linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /*{c-bup-background-end}*/);
-    background-image: -ms-linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /*{c-bup-background-end}*/);
-    background-image: -o-linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /*{c-bup-background-end}*/);
-    background-image: linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /*{c-bup-background-end}*/);    
-}
+.planlist li {padding:10px;border-bottom: 1px solid #CCC}
 .planlist li a {display:block;padding:10px }
 .planlist header {color:#0067b0;font-weight:bold}
 .planlist m {color:#333;display:block;padding:5px 0} 
@@ -178,3 +155,4 @@ background-image: linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /
 .orderlist article p.middle {}
 .orderlist article p.last {width:33%;text-align:right}
 .orderlist article p.hg {color:#999}
+

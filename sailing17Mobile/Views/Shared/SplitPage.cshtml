@@ -2,8 +2,8 @@
     Layout = null;
     int pageCount = int.Parse(ViewData["pageCount"].ToString());
     int page = int.Parse(ViewData["page"].ToString());
-    string controller = @ViewContext.RouteData.Values["controller"].ToString();
-    string action = @ViewContext.RouteData.Values["action"].ToString();
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    string action = ViewContext.RouteData.Values["action"].ToString();
 }
 <style>
 .splitpage {margin-bottom:2px;line-height:48px;}
@@ -16,13 +16,6 @@
 .splitpage td.middle select {height:48px;border:0;width:100%;top:0px;left:0px;position:absolute;opacity:0;}
 .splitpage td.last {text-align:left;padding-left:2px}
 .splitpage td.last a {padding-left:10px}
-
-.stuck {
-    position: fixed;
-    top: 0;
-    box-shadow: 0 3px 2px rgba(0, 0, 0, .3);
-    margin-left:-1px;
-}
 
 </style>
 <!--分页-->        
@@ -61,6 +54,5 @@
         $("#pageselect").bind("change", function () {
             window.location.href = "/@controller/@action/" + $(this).val();
         });
-
     });
 </script>

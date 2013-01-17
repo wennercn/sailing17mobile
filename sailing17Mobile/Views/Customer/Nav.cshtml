@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+    
+    //链接列表
+    //链接名称 , 链接action
+    string[,] links = { 
+        {"简介" , "about"} , 
+        {"新闻" , "news"} , 
+        {"船期" , "plan"} , 
+        {"下载" , "download"} , 
+        {"滚动" , "five"}
+    };
+
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    string action = ViewContext.RouteData.Values["action"].ToString();
+    string id = ViewContext.RouteData.Values["id"].ToString();
+    
+}
+<style>
+.splitpage {margin-bottom:2px;line-height:48px;}
+.splitpage table {width:100%;border-collapse:collapse;}
+.splitpage td {width:20%;padding:0;border:0;border-left:#fff solid 2px}
+.splitpage td a {display:block;background:#eee;text-align:center;font-size:18px}
+.splitpage td a.current {background-color:#ffcc00;font-weight:bold}
+.splitpage td a:hover {background-color:#ff6600;color:#fff}
+.splitpage td.first {border:0}
+
+</style>
+<!--客户导航--> 
+<div class='splitpage'>
+    <table>
+        <tr>
+        @for(var i = 0 ; i < links.GetLength(0) ; i++){
+            <td class="@(i==0 ? "first" : "")">
+                <a href='@Url.Action(links[i, 1], controller, new { id = id })' class="@(action.ToLower().IndexOf(links[i, 1])>-1 ? "current" : "")">@links[i, 0]</a>      
+            </td>
+        }
+        </tr>
+    </table>
+</div>
+@Scripts.Render("~/script/jquery.waypoints.js" , "~/script/jquery.waypoints-sticky.js")
+<script>
+    jQuery(function ($) {
+        $('.splitpage').waypoint('sticky');
+    });
+</script>

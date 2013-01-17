@@ -48,7 +48,17 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 
         };
         $wrap.waypoint(options);
+
+
+        $(window).resize(function () {
+            var width = $("body").width();
+            $wrap.width(width);
+            $sticky = $(this).children(':first');
+            $sticky.width(width);
+        });
+
         return this;
     });
+
 
 }).call(this);

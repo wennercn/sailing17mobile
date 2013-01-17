@@ -1,25 +1,96 @@
 ﻿@model sailing17Mobile.Models.UserOrder
 @using sailing17Mobile.Models
 @{
-    ViewBag.Title = ViewBag.pagelocation = "订单信息";
+    ViewBag.Title = ViewBag.pagelocation = "集装箱货物托运单";
     UserOrder order = Model;
     //order.GetType().GetField("jobno").GetValue();
 }
 <section class="maincontent">
+<style>
+    .orderdetail {padding:5px}
+    .orderdetail table {width:100%;border-collapse:collapse}
+    .orderdetail td {padding:5px;border:0;border-bottom:#ddd solid 1px}
+    .orderdetail td.title {color:#666;text-align:right}
+    .orderdetail td i {color:#999;display:block;}
+    .orderdetail tr.im {font-weight:bold;background:#f7f7f7}
+    .orderdetail tr.bb td {border-color:#666}
+</style>
+<div class="orderdetail">
+    <table>
+        <tr class='bb'><td class='title' width="100px">状态</td><td>@Model.cur_status</td></tr>    
+        <tr class='im bb'><td class='title'>JOB NO.<i>流水号</i></td><td>@Model.jobno</td></tr>  
+        <tr class='im bb'><td class='title'>BOOKING NO.<i>定舱号</i></td><td></td></tr>  
+        <tr class='im bb'><td class='title'>B/L No.<i>提单号</i></td><td></td></tr>
+        <tr><td class='title'>Shipper<i>发货人</i></td><td>@Model.send_emp</td></tr>    
+        <tr><td class='title'>Consignee<i>收货人</i></td><td>@Model.recv_emp</td></tr>    
+        <tr><td class='title'>Notify Party<i>通知人</i></td><td>@Model.notify_emp</td></tr>    
+        <tr><td class='title'>货代公司</td><td>@Model.agent_name</td></tr>    
+        <tr><td class='title'>船东</td><td>@Model.ansend_good</td></tr>    
 
-<div class="orderlist">
-    <ul>
-    <li>
-        <a href="@Url.Action("orderdetail", "user", new { id = order.jobno})"  class="@(order.cur_status == "已处理" ? "yes" : "no")">
-            <header><span class='fr'>@order.boxtype</span>@order.jobno</header>
-            <m class='clearfix'><span class='fl'><i>To.</i>@order.discharge_port</span><span class='fr'><i>From.</i>@order.load_port</span></m>
-            <article class='clearfix'>
-                <p class="first">@order.agent_name</p>
-                <p >@order.send_good</p>
-                <p class="last">@order.ansend_good</p>
-            </article>
-        </a>
-    </li> 
-    </ul>
+
+        <tr><td class='title'>create_date</td><td>@Model.create_date</td></tr>
+        <tr><td class='title'>confirm_time</td><td>@Model.confirm_time</td></tr>     
+        <tr><td class='title'>send_time</td><td>@Model.send_time</td></tr>   
+
+        <tr><td class='title'>comfile</td><td>@{
+            string s = Model.comfile;
+            if (s.Length > 0) { 
+                string[] d = s.Split('=');
+                @d[0]<br />
+                @(d[2] +" @ "+ d[1])
+            }    
+        }</td></tr>   
+
+
+        <tr><td class='title'>Port of Loading<i>装货港</i></td><td>@Model.load_port</td></tr>    
+        <tr><td class='title'>Port of Discharge<i>卸货港</i></td><td>@Model.discharge_port</td></tr>    
+        <tr><td class='title'>Place of Delivery<i>交货地点</i></td><td>@Model.delivery_place</td></tr>    
+        <tr><td class='title'>load_code</td><td>@Model.load_code</td></tr>    
+        <tr><td class='title'>discharge_code</td><td>@Model.discharge_code</td></tr>    
+        <tr><td class='title'>delivery_code</td><td>@Model.delivery_code</td></tr>
+        <tr><td class='title'>包装</td><td>@Model.totalpackkind</td></tr>   
+        <tr><td class='title'>数量(件/箱)</td><td>@Model.totalpackqty</td></tr>    
+        <tr><td class='title'>Marks & Nos.<i>标记与号码</i></td><td>@Model.mark_no</td></tr>    
+        <tr><td class='title'>containers_teu</td><td>@Model.containers_teu</td></tr>    
+        <tr><td class='title'>Kind of Packages<br />Description of Goods<br /><i>包装种类与货名</i></td><td>@Model.pack_desc</td></tr>    
+        <tr><td class='title'>Gross Weight<i>毛重(公斤)</i></td><td>@Model.gross_weigh</td></tr>    
+        <tr><td class='title'>Measurement<i>呎码(立方米)</i></td><td>@Model.measurement</td></tr>    
+        <tr><td class='title'>teu20gp</td><td>@Model.teu20gp</td></tr>    
+        <tr><td class='title'>teu40gp</td><td>@Model.teu40gp</td></tr>    
+        <tr><td class='title'>teu40hq</td><td>@Model.teu40hq</td></tr>    
+        <tr><td class='title'>运输条款</td><td>@Model.train_con</td></tr>    
+        <tr><td class='title'>fullname</td><td>@Model.fullname</td></tr>        
+        <tr><td class='title'>getno</td><td>@Model.getno</td></tr>       
+        <tr><td class='title'>train_memo</td><td>@Model.train_memo</td></tr>    
+        <tr><td class='title'>pay_con</td><td>@Model.pay_con</td></tr>    
+        <tr><td class='title'>pay_memo</td><td>@Model.pay_memo</td></tr>    
+        <tr><td class='title'>status</td><td>@Model.status</td></tr>    
+
+        <tr><td class='title'>remark</td><td>@Model.remark</td></tr>    
+        <tr><td class='title'>filepath</td><td>@Model.filepath</td></tr>    
+        <tr><td class='title'>inputway</td><td>@Model.inputway</td></tr>    
+        <tr><td class='title'>edttxt</td><td>@Model.edttxt</td></tr>        
+        <tr><td class='title'>emp_id</td><td>@Model.emp_id</td></tr>   
+ 
+
+        <tr><td class='title'>是否产地</td><td>@(Model.whether1 == "1" ? "是" : "否")</td></tr>    
+        <tr><td class='title'>是否装箱</td><td>@(Model.whether2 == "1" ? "是" : "否")</td></tr>    
+        <tr><td class='title'>是否报关</td><td>@(Model.whether3 == "1" ? "是" : "否")</td></tr>    
+        <tr><td class='title'>是否保险</td><td>@(Model.whether4 == "1" ? "是" : "否")</td></tr>    
+        <tr><td class='title'>agent</td><td>@Model.agent</td></tr>    
+        <tr><td class='title'>send_good</td><td>@Model.send_good</td></tr>    
+        <tr><td class='title'>ansend_good</td><td>@Model.ansend_good</td></tr>    
+        <tr><td class='title'>upcount</td><td>@Model.upcount</td></tr>    
+
+        <tr><td class='title'>update_time</td><td>@Model.update_time</td></tr>    
+        <tr><td class='title'>del_time</td><td>@Model.del_time</td></tr>    
+        <tr><td class='title'>undel_time</td><td>@Model.undel_time</td></tr>    
+        <tr><td class='title'>rsp_list</td><td>@Model.rsp_list</td></tr>    
+        <tr><td class='title'>confrim_id</td><td>@Model.confrim_id</td></tr>    
+        <tr><td class='title'>create_name</td><td>@Model.create_name</td></tr>    
+        <tr><td class='title'>second</td><td>@Model.second</td></tr>       
+        <tr><td class='title'>loc_name</td><td>@Model.loc_name</td></tr>    
+    </table>
+
 </div>
 </section>

@@ -1,6 +1,14 @@
-﻿@{
+﻿@using sailing17Mobile.Models;
+@using sailing17Mobile.Models.Customer;
+@{
     ViewBag.Title = "首页";
-    //链接
+    //新闻
+    List<News> newslist = ViewBag.newslist;
+    
+    //客户列表
+    List<Customer> customerlist = ViewBag.customerlist;
+     
+    //链接列表    
     string[,] links = { 
         {"我的定舱" , "user" , "orders"} , 
         {"船期信息" , "plan" , ""} , 
@@ -8,16 +16,7 @@
         {"我的押金" , "user" , "moneys"} , 
         {"进出口查询" , "jck" , ""} , 
         {"个人信息" , "user" , ""} 
-    };
-    //客户
-    string[] customers = { "msc" , "cmacgm" , "maersk" , "evergreen" , "cnc"};
-
-    ATLDATALib.IDBDataAtl news = ViewBag.news;
-    int newsCount = 0;
-    if (news.IsOK()){
-        newsCount = news.GetRowCount();
-        newsCount = newsCount > 10 ? 10 : newsCount;
-    }
+    };    
 }
 
 @section headContent{
@@ -27,23 +26,22 @@
 </style>
 }
     <!--最新消息显示-->
-	<div class='news clearfix'>
-		<a href="@Url.Action("" , "news")" class='iconblock fl'>N</a>
-        <!--
-        右边图标 , 可以放微博图标
-		<div class='fr'>
-			<div class='iconblock fl'>2</div>
-			<div class='iconblock fl' style='margin-right:0'>3</div>
-		</div>
-        -->        
-		<div class='list' style="overflow:hidden">
-            <div class="touchslider-viewport"><div>
-            @for (int i = 0; i <newsCount; i++){
-                ATLDATALib.DBDataAtl item = (ATLDATALib.DBDataAtl)news.GetDataTIndex(i);                
-			    <a href='@Url.Action("detail", "news", new { id = item.GetStringTName("new_id") })' class="touchslider-item">@item.GetStringTName("title")</a>
-            }
-            </div></div>
-		</div>
+	<div class='news'>
+    <table>
+        <tr>
+            <td width="36px"><a href="@Url.Action("" , "news")" class='iconblock fl'>N</a></td>
+            <td width="*">
+		    <div class='list' style="overflow:hidden">
+                <div class="touchslider-viewport"><div>
+                @foreach(News news in newslist){               
+			        <a href='@Url.Action("detail", "news", new { id = news.new_id })' class="touchslider-item">@news.title</a>
+                }
+                </div></div>
+		    </div>
+            </td>
+        </tr>    
+    </table>
+
 	</div>
     <!--菜单-->
 	<dl style="padding:0;margin:0;list-style:none;" class="clearfix">
@@ -55,9 +53,14 @@
 	<div id="carousel-gallery" class='customer touchcarousel'>
 		<p>船舶五日滚动协同动态</p>
 		<ul class="touchcarousel-container clearfix">
-        @foreach (var c in customers)
-        { 
-            <li class="touchcarousel-item c_@(c)"></li>
+        @foreach (var c in customerlist) { 
+            if (c.ntype != "") {
+            <li class="touchcarousel-item">
+            <a href='@Url.Action("", "customer", new { id = c.customer_code })'>
+            <img src="~/res/img/customer/c_@(c.customer_code).jpg" />
+            </a>
+            </li>
+            }
         }
 		</ul>
 	</div>

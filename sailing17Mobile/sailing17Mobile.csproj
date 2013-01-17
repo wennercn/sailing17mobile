@@ -134,6 +134,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Customer.cs" />
     <Compile Include="Controllers\Home.cs" />
     <Compile Include="Controllers\JCK.cs" />
     <Compile Include="Controllers\Login.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Models\BackData.cs" />
     <Compile Include="App_Code\RPCMap.cs" />
     <Compile Include="App_Code\SM.cs" />
+    <Compile Include="Models\Customer\Customer.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\UserAuthorize.cs" />
     <Compile Include="Models\Plan.cs" />
@@ -165,11 +167,6 @@
     <Content Include="res\img\a1.png" />
     <Content Include="res\img\a6.png" />
     <Content Include="res\img\bg1.jpg" />
-    <Content Include="res\img\c_cmacgm.jpg" />
-    <Content Include="res\img\c_cnc.jpg" />
-    <Content Include="res\img\c_evergreen.jpg" />
-    <Content Include="res\img\c_maersk.jpg" />
-    <Content Include="res\img\c_msc.jpg" />
     <Content Include="res\img\logo.png" />
     <Content Include="res\img\logobg.jpg" />
     <Content Include="res\img\sina.png" />
@@ -212,6 +209,13 @@
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="log4net.config" />
     <Content Include="Views\Shared\SplitPage.cshtml" />
+    <Content Include="Views\Customer\About.cshtml" />
+    <Content Include="Views\Customer\Nav.cshtml" />
+    <Content Include="Views\Customer\News.cshtml" />
+    <Content Include="Views\Customer\Plan.cshtml" />
+    <None Include="Views\Customer\NewsDetail.cshtml" />
+    <Content Include="Views\Customer\Download.cshtml" />
+    <Content Include="Views\Customer\Five.cshtml" />
     <None Include="Views\User\Orders.cshtml" />
     <Content Include="Views\User\OrderDetail.cshtml" />
   </ItemGroup>

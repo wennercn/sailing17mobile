@@ -13,11 +13,15 @@ namespace sailing17Mobile.Models {
         public override void OnAuthorization(AuthorizationContext filterContext) {
 
             if (filterContext.HttpContext.Session["user_id"] == null) {
-
+                /*
                 string controller = filterContext.RouteData.Values["controller"].ToString();
                 string action = filterContext.RouteData.Values["action"].ToString();
                 filterContext.HttpContext.Session["lastController"] = controller;
                 filterContext.HttpContext.Session["lastAction"] = action;
+                */
+                //获取进入的路由信息
+                filterContext.HttpContext.Session["lastRouteValues"] = filterContext.RouteData.Values;
+
                 filterContext.HttpContext.Response.Redirect(new UrlHelper(filterContext.RequestContext).Action("", "Login"));
                 filterContext.Result = new EmptyResult();
             }
