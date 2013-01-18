@@ -23,6 +23,7 @@ table.singlerow td a {display:block;}
     top: 0;
     box-shadow: 0 3px 2px rgba(0, 0, 0, .3);
     margin-left:-1px;
+    z-index:200
 }
 
 
@@ -129,9 +130,9 @@ background-image: linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /
 
 /*船期列表*/
 .planlist {font-size:16px;line-height:150%}
-.planlist li {padding:10px;border-bottom: 1px solid #CCC}
+.planlist li {border-bottom: 1px solid #CCC}
 .planlist li a {display:block;padding:10px }
-.planlist header {color:#0067b0;font-weight:bold}
+.planlist header {color:#0067b0;font-weight:bold;background:blue}
 .planlist m {color:#333;display:block;padding:5px 0} 
 .planlist m i {font-size:12px;color:#999}
 .planlist article {}
@@ -139,6 +140,12 @@ background-image: linear-gradient( white /*{c-bup-background-start}*/, #F1F1F1 /
 .planlist article p.first {text-align:left}
 .planlist article p.last {width:34%;text-align:right}
 .planlist article p.hg {color:#999}
+
+.btn_planmore {float:right;position:relative;background:red}
+.btn_planmore span {color:#666;background:red}
+.btn_planmore ul {display:none;position:absolute;top:31px;right:0;}
+.btn_planmore ul li {border:0}
+.btn_planmore ul li a {padding:0}
 
 /*用户订单列表*/
 .orderlist {font-size:16px;line-height:150%}

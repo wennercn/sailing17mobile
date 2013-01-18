@@ -26,11 +26,10 @@ namespace sailing17Mobile.Controllers{
         //
         // GET: /News/Detail/5
         public ActionResult Detail(int id){
-            AtlData2Model<News> a2m = new AtlData2Model<News>();
             News news = new News();
             ATLDATALib.IDBDataAtl rs = SM.RPC.ShipBoxPriceControl.GetNewsOne("new_id", id);
             if (rs.IsOK()) {
-                news = a2m.Convert(rs);
+                news = AtlData2Model<News>.Convert(rs);
             } else {
                 ViewBag.ErrorInfo = rs.GetErrorinfo();
             }

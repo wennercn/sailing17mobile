@@ -4,7 +4,8 @@
     ViewBag.Title = ViewBag.pagelocation = @Model.customer_name;
 }
 <section class='maincontent'>
-@Html.Partial("nav" , ViewData)
+@Html.Partial("nav" , Model , ViewData)
+@ViewData["code1"]
 <div style="padding:10px;line-height:180%;font-size:16px">
 <img src="~/res/img/customer/c_@(Model.ntype).jpg" style='float:right;border:#ccc solid 1px'/>
 <h3 style='color:#0067b4;margin:5px 0'>@Model.title</h3>

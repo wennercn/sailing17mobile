@@ -15,8 +15,8 @@ namespace sailing17Mobile
 
             routes.MapRoute(
                 name: "Customer",
-                url: "Customer/{id}/{action}/{ccc}",
-                defaults: new { controller = "Customer", action = "About", ccc = UrlParameter.Optional }
+                url: "Customer/{code}/{action}/{id}",
+                defaults: new { controller = "Customer", action = "About", id = UrlParameter.Optional }
             );
 
 

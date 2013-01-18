@@ -1,20 +1,25 @@
-﻿@{
+﻿@using sailing17Mobile.Models
+@using sailing17Mobile.Models.Customer
+@{
     Layout = null;
+    Customer customer = ViewData["customer"] == null ? Model : (Customer)ViewData["customer"];
+    
+    string curpage_action = ViewContext.RouteData.Values["action"].ToString();
+    string customer_code = customer.customer_code;
+    string customer_id = customer.customer_id;
     
     //链接列表
     //链接名称 , 链接action
-    string[,] links = { 
-        {"简介" , "about"} , 
-        {"新闻" , "news"} , 
-        {"船期" , "plan"} , 
-        {"下载" , "download"} , 
-        {"滚动" , "five"}
+    List<Link> links = new List<Link>{
+        new Link {text="简介" , action="about"} , 
+        new Link {text="新闻" , action="news"} , 
+        new Link {text="船期" , action="plan"} , 
+        new Link {text="下载" , action="download"} , 
+        new Link {text="滚动" , action="five"}    
     };
-
-    string controller = ViewContext.RouteData.Values["controller"].ToString();
-    string action = ViewContext.RouteData.Values["action"].ToString();
-    string id = ViewContext.RouteData.Values["id"].ToString();
     
+    //string controller = ViewContext.RouteData.Values["controller"].ToString();
+
 }
 <style>
 .splitpage {margin-bottom:2px;line-height:48px;}
@@ -30,9 +35,15 @@
 <div class='splitpage'>
     <table>
         <tr>
-        @for(var i = 0 ; i < links.GetLength(0) ; i++){
+        @for(var i = 0 ; i < links.Count() ; i++){
+            Link link = links[i];
+            string url = Url.Action(link.action,new {
+                code = customer_code
+            });
             <td class="@(i==0 ? "first" : "")">
-                <a href='@Url.Action(links[i, 1], controller, new { id = id })' class="@(action.ToLower().IndexOf(links[i, 1])>-1 ? "current" : "")">@links[i, 0]</a>      
+                <a href='@url' class="@(curpage_action.ToLower().IndexOf(link.action) > -1 ? "current" : "")">
+                @link.text
+                </a>      
             </td>
         }
         </tr>

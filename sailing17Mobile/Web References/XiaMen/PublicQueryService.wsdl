@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ImportArrivalQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ctnNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportArrivalQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportArrivalQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportActivityQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="blNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportActivityQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportActivityQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FeeReduceQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="blNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ctnNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jachGc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jaRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FeeReduceQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FeeReduceQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SailingScheduleQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sald" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sald2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vevsNm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vaflag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SailingScheduleQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SailingScheduleQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportActivityQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="blNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wjobNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportActivityQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportActivityQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpcontainerReleaseQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="blNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpcontainerReleaseQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExpcontainerReleaseQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportArrivalQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ImportArrivalQuery" />
+  </wsdl:message>
+  <wsdl:message name="ImportArrivalQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ImportArrivalQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportActivityQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ImportActivityQuery" />
+  </wsdl:message>
+  <wsdl:message name="ImportActivityQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ImportActivityQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="FeeReduceQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:FeeReduceQuery" />
+  </wsdl:message>
+  <wsdl:message name="FeeReduceQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:FeeReduceQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SailingScheduleQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:SailingScheduleQuery" />
+  </wsdl:message>
+  <wsdl:message name="SailingScheduleQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:SailingScheduleQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportActivityQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ExportActivityQuery" />
+  </wsdl:message>
+  <wsdl:message name="ExportActivityQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ExportActivityQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpcontainerReleaseQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ExpcontainerReleaseQuery" />
+  </wsdl:message>
+  <wsdl:message name="ExpcontainerReleaseQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ExpcontainerReleaseQueryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PublicQueryServiceSoap">
+    <wsdl:operation name="ImportArrivalQuery">
+      <wsdl:input message="tns:ImportArrivalQuerySoapIn" />
+      <wsdl:output message="tns:ImportArrivalQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportActivityQuery">
+      <wsdl:input message="tns:ImportActivityQuerySoapIn" />
+      <wsdl:output message="tns:ImportActivityQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FeeReduceQuery">
+      <wsdl:input message="tns:FeeReduceQuerySoapIn" />
+      <wsdl:output message="tns:FeeReduceQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SailingScheduleQuery">
+      <wsdl:input message="tns:SailingScheduleQuerySoapIn" />
+      <wsdl:output message="tns:SailingScheduleQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportActivityQuery">
+      <wsdl:input message="tns:ExportActivityQuerySoapIn" />
+      <wsdl:output message="tns:ExportActivityQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpcontainerReleaseQuery">
+      <wsdl:input message="tns:ExpcontainerReleaseQuerySoapIn" />
+      <wsdl:output message="tns:ExpcontainerReleaseQuerySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PublicQueryServiceSoap" type="tns:PublicQueryServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportArrivalQuery">
+      <soap:operation soapAction="http://tempuri.org/ImportArrivalQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportActivityQuery">
+      <soap:operation soapAction="http://tempuri.org/ImportActivityQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeeReduceQuery">
+      <soap:operation soapAction="http://tempuri.org/FeeReduceQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SailingScheduleQuery">
+      <soap:operation soapAction="http://tempuri.org/SailingScheduleQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportActivityQuery">
+      <soap:operation soapAction="http://tempuri.org/ExportActivityQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpcontainerReleaseQuery">
+      <soap:operation soapAction="http://tempuri.org/ExpcontainerReleaseQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PublicQueryServiceSoap12" type="tns:PublicQueryServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportArrivalQuery">
+      <soap12:operation soapAction="http://tempuri.org/ImportArrivalQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportActivityQuery">
+      <soap12:operation soapAction="http://tempuri.org/ImportActivityQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeeReduceQuery">
+      <soap12:operation soapAction="http://tempuri.org/FeeReduceQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SailingScheduleQuery">
+      <soap12:operation soapAction="http://tempuri.org/SailingScheduleQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportActivityQuery">
+      <soap12:operation soapAction="http://tempuri.org/ExportActivityQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpcontainerReleaseQuery">
+      <soap12:operation soapAction="http://tempuri.org/ExpcontainerReleaseQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublicQueryService">
+    <wsdl:port name="PublicQueryServiceSoap" binding="tns:PublicQueryServiceSoap">
+      <soap:address location="http://tjsee.penavicotj.com/eportaltj/BizWebService/PublicQueryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PublicQueryServiceSoap12" binding="tns:PublicQueryServiceSoap12">
+      <soap12:address location="http://tjsee.penavicotj.com/eportaltj/BizWebService/PublicQueryService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

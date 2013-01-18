@@ -43,7 +43,6 @@ namespace sailing17Mobile.Controllers
 
         //订舱详细信息
         public ActionResult OrderDetail (string id) {
-            AtlData2Model<UserOrder> a2m = new AtlData2Model<UserOrder>();
             UserOrder order = new UserOrder();
             ATLDATALib.IDBDataAtl rs = SM.UserRPC.ShipBoxPriceControl.GetSailBoxList(
                 "emp_id", Session["user_id"],
@@ -51,7 +50,7 @@ namespace sailing17Mobile.Controllers
                 "jobno" , id
             );
             if (rs.IsOK()) {
-                order = a2m.Convert(rs);
+                order = AtlData2Model<UserOrder>.Convert(rs);
             } else {
                 ViewBag.ErrorInfo = rs.GetErrorinfo();
             }

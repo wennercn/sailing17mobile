@@ -43,7 +43,7 @@ namespace sailing17Mobile.Controllers
                 if (Session["lastRouteValues"] != null) {
                     rv = (System.Web.Routing.RouteValueDictionary)Session["lastRouteValues"];
                 }
-                return RedirectToAction( rv["action"].ToString() , rv);
+                return RedirectToAction( rv["action"] == null ? "" : rv["action"].ToString() , rv);
             }else{
                 ViewBag.errors = rs;
                 return View("index");

@@ -56,7 +56,7 @@
         @foreach (var c in customerlist) { 
             if (c.ntype != "") {
             <li class="touchcarousel-item">
-            <a href='@Url.Action("", "customer", new { id = c.customer_code })'>
+            <a href='@Url.Action("", "customer", new { code = c.customer_code })'>
             <img src="~/res/img/customer/c_@(c.customer_code).jpg" />
             </a>
             </li>

@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ATLDATALib;
 
 namespace sailing17Mobile {
     public class AtlData2Model<T> where T : new() {
-        private T item;
-        private List<T> items;
-
-        public AtlData2Model () {
-            item = new T();
-            items = new List<T>();
-        }
         //获取类的属性列表
-        public List<string> GetProperties(){
+        public static List<string> GetProperties(){
             Type t = typeof(T);         
             System.Reflection.PropertyInfo[] properties = t.GetProperties();
             List<string> ps = new List<string>();
@@ -23,7 +17,8 @@ namespace sailing17Mobile {
             return ps;
         }
         //转换单个对象
-        public T Convert (ATLDATALib.IDBDataAtl datas = null) {
+        public static T Convert (ATLDATALib.IDBDataAtl datas = null) {
+            T item = new T();
             var ps = GetProperties();
             if (datas != null && datas.IsOK() && datas.GetRowCount() > 0) {
                 ATLDATALib.IDBDataAtl data = (ATLDATALib.IDBDataAtl)datas.GetDataTIndex(0);
@@ -39,6 +34,7 @@ namespace sailing17Mobile {
 
         //转换LIST
         public List<T> ConvertList (ATLDATALib.IDBDataAtl datas) {
+            List<T> items = new List<T>();
             var ps = GetProperties();
             if (datas != null && datas.IsOK() && datas.GetRowCount() > 0) {
                 for (var i = 0; i < datas.GetRowCount(); i++) {

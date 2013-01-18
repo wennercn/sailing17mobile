@@ -1,9 +1,55 @@
-﻿@{
+﻿@model IEnumerable<sailing17Mobile.Models.Plan>
+@using sailing17Mobile.Models;
+@{
     ViewBag.Title = ViewBag.pagelocation = "客户五日滚动互动信息";
 }
 <section class='maincontent'>
 @Html.Partial("nav" , ViewData)
-<div style="padding:10px;line-height:180%;font-size:16px">
-
+<div class='planlist'>
+    <ul>
+    @foreach(Plan plan in Model){
+        string eta = plan.eta1;
+        eta = eta.Replace(" ", "<br>");
+        string etb = plan.etb1;
+        etb = etb.Replace(" ", "<br>");
+        string etd = plan.etd1;
+        etd = etd.Replace(" ", "<br>");
+        <li>
+        <a href='@Url.Action("11")'>
+        <header>
+            <div class='btn_planmore'>
+                <span>more</span>
+                <ul>
+                    <li><a href='#'>1111111</a></li>
+                    <li><a href='#'>2222222</a></li>        
+                </ul>
+            </div>
+            @plan.cname / @plan.ename
+        </header>
+        <m class='clearfix'>
+        <span class='fl'><i>sn.</i>@plan.sn</span>
+        <span class='fr'><i>V.</i>@plan.voyage_num</span>
+        </m>
+        <article class='clearfix'>
+            <p class="first @(eta.IndexOf("后告")>-1 ? "hg" : "")">@Html.Raw(eta)</p>
+            <p class="@(etb.IndexOf("后告")>-1 ? "hg" : "")">@Html.Raw(etb)</p>
+            <p class="last @(etd.IndexOf("后告")>-1 ? "hg" : "")">@Html.Raw(etd)</p>
+        </article>
+        </a>
+        </li>    
+    }
+    </ul>
 </div>
 </section>
+@section footContent{
+<script>
+    jQuery(function ($) {
+        $('.btn_planmore span').click(function () {
+            var ul = $(this).next(ul);
+            $(".btn_planmore ul").not(ul).hide();
+            ul.toggle();
+            return false;
+        })
+    });
+</script>
+}
